@@ -1,19 +1,19 @@
 import { useState } from 'react'
-function ClassNavbar(){
+function Navbar(){
     return(
         <>
         <header>
-            <div className='navbar'>
+            <nav className='navbar'>
                 <h1>DRESS ME APP</h1>
-                    <ul>
+                    <ul className='nav-links'>
                         <li>Home</li>
                         <li>Products</li>
                         <li>Login</li>
                     </ul>
-            </div>
+            </nav>
         </header>
         </>
     )
 }
 
-export default ClassNavbar
+export default Navbar
