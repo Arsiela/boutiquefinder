@@ -30,35 +30,36 @@ const Navbar = () => {
 
     return (
         <>
-        <nav className='navbar text-white flex items-center justify-between p-4 shadow-lg sticky top-0 z-50'>
-            <h1 className='text-2xl font-bold px-5'>DRESS ME APP</h1>
-            <input
-                type='text'
-                placeholder='Search products...'
-                className='p-1 mr-auto rounded text-black focus:outline-none focus:ring-2 focus:ring-transparent'
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-            />
-            <div className='flex items-center space-x-4'>
-                <ul className='flex items-center space-x-8 text-l'>
-                    <li className='hover:text-gray-400 transition duration-200'>Products</li>
-                    <li className='relative' ref={dropdownRef}>
-                        <button className='focus:outline-none hover:text-gray-400' onClick={toggleDropdown}>
-                            Login
-                        </button>
-                        {isOpen && (
-                            <div className='absolute right-0 mt-2 w-48 bg-white text-gray-800 rounded-lg shadow-lg'>
-                                <ul className='py-2'>
-                                    <li className='px-4 py-2 hover:bg-gray-200 transition duration-200' onClick={() => handleLoginClick('Owner')}>Login as Owner</li>
-                                    <li className='px-4 py-2 hover:bg-gray-200 transition duration-200' onClick={() => handleLoginClick('Admin')}>Login as Admin</li>
-                                </ul>
-                            </div>
-                        )}
-                    </li>
-                </ul>
-            </div>
-        </nav>
-         {loginType && <Login userType={loginType} />} {/* Render Login component based on type */}
+            <nav className='navbar text-white flex flex-col md:flex-row items-center justify-between p-4 shadow-lg sticky top-0 z-50'>
+                <h1 className='text-2xl font-bold px-5'>DRESS ME APP</h1>
+                <input
+                    type='text'
+                    placeholder='Search products...'
+                    className='p-1 w-full max-w-xs md:max-w-80 rounded text-black focus:outline-none bg-gray-200 focus:ring-2 focus:ring-transparent'
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                />
+                <div className='flex items-center space-x-4 mr-6 ml-6 mt-2 md:mt-0'>
+                    <ul className='flex items-center space-x-8 text-l '>
+                        <li className='hover:text-gray-400 transition duration-200'>Home</li>
+                        <li className='hover:text-gray-400 transition duration-200'>Products</li>
+                        <li className='relative' ref={dropdownRef}>
+                            <button className='focus:outline-none hover:text-gray-400' onClick={toggleDropdown}>
+                                Login
+                            </button>
+                            {isOpen && (
+                                <div className='absolute right-0 mt-2 w-48 bg-white text-gray-800 rounded-lg shadow-lg'>
+                                    <ul className='py-2'>
+                                        <li className='px-4 py-2 hover:bg-gray-200 transition duration-200' onClick={() => handleLoginClick('Owner')}>Login as Owner</li>
+                                        <li className='px-4 py-2 hover:bg-gray-200 transition duration-200' onClick={() => handleLoginClick('Admin')}>Login as Admin</li>
+                                    </ul>
+                                </div>
+                            )}
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            {loginType && <Login userType={loginType} />} {/* Render Login component based on type */}
         </>
     );
 };
